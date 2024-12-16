@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-Profile-Card</title>
+    <style>
+        /* Reset and font setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: #eef4ff;
+            padding: 20px;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 90px;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #f4f5f7;
+            padding: 5px 10px;
+            border-radius: 20px;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            background: none;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .search-bar button {
+            background-color: #ea4c89;
+            border: none;
+            color: #fff;
+            border-radius: 50%;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .auth-buttons .sign-up {
+            color: #333;
+        }
+
+        .auth-buttons .log-in {
+            background-color: #333;
+            color: #fff;
+        }
+        .profile-card {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+    
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.profile-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #000;
+}
+
+.status {
+    font-size: 0.9rem;
+    color: green;
+    margin: 0;
+}
+
+.follow {
+    font-size: 0.9rem;
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.icon-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.cta-btn {
+    background-color: #121212;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    background-color: #333;
+}
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #b0c6bc;
+            border-radius: 10px;
+        }
+
+        .profile-card {
+            width: 900px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .profile-info h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .profile-info .status {
+            color: green;
+            font-size: 14px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .actions .icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .actions .icon:hover {
+            background-color: #f3f3f3;
+        }
+
+        .button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #111;
+            color: #fff;
+        }
+
+        .profile-details {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .profile-details img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-details h1 {
+            font-size: 22px;
+            margin: 10px 0;
+        }
+
+        .profile-details hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 15px 0;
+        }
+.contact-info {
+  font-family: Arial, sans-serif;
+}
+.contact-info p{
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.contact-info img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.profile-card2{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-card h2 {
+      margin: 10px 0;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-card p {
+      font-size: 0.9rem;
+      color: #555;
+      justify-content: center;
+      align-items: center;
+    }
+.get-in-touch-btn {
+  flex-direction: column;
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+.get-in-touch-btn:hover {
+  flex-direction: column;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Dribbble</div>
+        <div class="search-bar">
+            <input type="text" placeholder="What are you looking for?">
+            <button>🔍</button>
+        </div>
+        <div class="nav-links">
+            <a href="#">Explore</a>
+            <a href="#">Hire a Designer</a>
+            <a href="#">Find Jobs</a>
+            <a href="#">Blog</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="#" class="sign-up">Sign up</a>
+            <a href="#" class="log-in">Log in</a>
+        </div>
+    </div>
+    <div class="profile-card">
+        <h1>My Profile Card</h1>
+        <div class="profile-content">
+            <div class="profile-info">
+                <img src="https://cdn.dribbble.com/users/7613510/avatars/normal/2ce3ce201bbe0481e43707b72822600f.png?1666649542" alt="Profile Picture" class="profile-img">
+                <div>
+                    <h2>Matt Jaekel</h2>
+                    <p class="status">Available for work <span class="follow">Follow</span></p>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="icon-btn">&#x2661;</button>
+                <button class="icon-btn">&#x1F516;</button>
+                <button class="cta-btn">Get in touch</button>
+            </div>
+        </div>
+    </div>
+            <div class="profile-details">
+                <img src="https://cdn.dribbble.com/users/7613510/avatars/normal/2ce3ce201bbe0481e43707b72822600f.png?1666649542" alt="Profile Picture">
+                <h1>Hi I'm Matt! <span>👋</span></h1>
+                <hr>
+                <div class="contact-info">
+                    <p><img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="Instagram"/> @mattjaekel.design</p>
+                    <p><img src="https://img.icons8.com/ios/50/000000/email.png" alt="Email"/> mattjaekeldesign@gmail.com</p>
+                    <p><img src="https://img.icons8.com/ios/50/000000/link.png" alt="Link"/> <a href="https://mattjaekel.design" target="_blank">https://mattjaekel.design</a></p>
+                    <p><img src="https://img.icons8.com/ios/50/000000/linkedin.png" alt="LinkedIn"/> I’m also on LinkedIn!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="profile-card2">
+  <img src="https://cdn.dribbble.com/users/7613510/avatars/normal/2ce3ce201bbe0481e43707b72822600f.png?1666649542" alt="Profile of Ehsan" class="profile-img">
+  <h2>Matt Jaekel</h2>
+  <a href="#" class="get-in-touch-btn">Get in touch</a>
+</div>
+</body>
+</html>
